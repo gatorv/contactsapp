@@ -1,0 +1,15 @@
+<resources>
+    <string name="app_name">Contactos</string>
+    <string name="crear_contacto">Crear Contacto</string>
+    <string name="firstName">Nombres</string>
+    <string name="lastName">Apellidos</string>
+    <string name="telephone">Teléfono</string>
+    <string name="photo_label">Fotografia</string>
+    <string name="photo_capture_button">Capture</string>
+    <string name="add_contact_menu">Agregar Contacto</string>
+    <string name="value_required">Por favor agrega un valor</string>
+    <string name="menu_edit">Editar</string>
+    <string name="menu_delete">Borrar</string>
+    <string name="contact_deleted">Contacto Borrado</string>
+    <string name="picture_error_file">Error creando directorio temporal</string>
+</resources>
