@@ -69,6 +69,7 @@ public class ContactsAdapter extends RecyclerView.Adapter<ContactsAdapter.ViewHo
 
         @Override
         public void onCreateContextMenu(ContextMenu contextMenu, View view, ContextMenu.ContextMenuInfo contextMenuInfo) {
+            contextMenu.add(Menu.NONE, R.id.menu_view_contact, Menu.NONE, R.string.menu_view_contact);
             contextMenu.add(Menu.NONE, R.id.menu_edit_contact, Menu.NONE, R.string.menu_edit);
             contextMenu.add(Menu.NONE, R.id.menu_delete_contact, Menu.NONE, R.string.menu_delete);
         }

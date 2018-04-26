@@ -12,4 +12,8 @@
     <string name="menu_delete">Borrar</string>
     <string name="contact_deleted">Contacto Borrado</string>
     <string name="picture_error_file">Error creando directorio temporal</string>
+    <string name="contact_image">Imagen Contacto</string>
+    <string name="contact_view_name_label">Nombre</string>
+    <string name="contact_view_telephone_label">Teléfono</string>
+    <string name="menu_view_contact">Ver</string>
 </resources>

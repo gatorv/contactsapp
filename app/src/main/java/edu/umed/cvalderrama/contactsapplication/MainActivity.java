@@ -8,11 +8,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.support.v7.widget.Toolbar;
+import android.text.TextUtils;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.view.View;
 import android.widget.Toast;
 
+import java.io.File;
 import java.util.List;
 
 import edu.umed.cvalderrama.contactsapplication.bean.Contact;
@@ -25,6 +27,7 @@ import edu.umed.cvalderrama.contactsapplication.ui.ContactsAdapter;
 public class MainActivity extends AppCompatActivity {
     public final static int ADD_CONTACT = 1;
     public final static int EDIT_CONTACT = 2;
+    public final static int VIEW_CONTACT = 3;
 
     private RecyclerView recyclerView;
     private RecyclerView.Adapter contactsAdapter;
@@ -89,6 +92,9 @@ public class MainActivity extends AppCompatActivity {
 
         Contact c = contacts.get(position);
         switch (item.getItemId()) {
+            case R.id.menu_view_contact:
+                showViewForm(c);
+                break;
             case R.id.menu_edit_contact:
                 showContactForm(c);
                 break;
@@ -153,6 +159,16 @@ public class MainActivity extends AppCompatActivity {
     }
 
     /**
+     * Display the Contact Form for viewing
+     * @param contact The contact to edit
+     */
+    private void showViewForm(Contact contact) {
+        Intent intent = new Intent(this, ContactView.class);
+        intent.putExtra("viewingId", contact.getId());
+        startActivityForResult(intent, VIEW_CONTACT);
+    }
+
+    /**
      * Display the Contact Form
      */
     private void showContactForm() {
@@ -176,6 +192,10 @@ public class MainActivity extends AppCompatActivity {
      */
     private void deleteContact(Contact contact) {
         db.deleteContact(contact);
+        if (!TextUtils.isEmpty(contact.getPhotoUri())) {
+            File storedFile = new File(contact.getPhotoUri());
+            storedFile.delete();
+        }
         updateContactList();
     }
 }

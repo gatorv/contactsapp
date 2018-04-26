@@ -87,4 +87,14 @@ public class Contact {
     public void setPhotoUri(String photoUri) {
         this.photoUri = photoUri;
     }
+
+    /**
+     * Return the full contact name
+     * @return The full contact name
+     */
+    public String getFullName() {
+        return new StringBuilder().append(getFirstName())
+                .append(" ")
+                .append(getLastName()).toString();
+    }
 }
